@@ -29,7 +29,7 @@ fun main() {
     part2(input).println()
 }
 
-fun part1(input: List<String>): Int =
+fun part1(input: List<String>) : Int =
     input.sumOf { calibration(it) }
 
 fun calibration(input : String) : Int {
@@ -55,20 +55,21 @@ In this example, the calibration values are 29, 83, 13, 24, 42, 14, and 76. Addi
 */
 
 val words = listOf("one", "two", "three", "four", "five", "six", "seven", "eight", "nine", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9")
-val digitMap = mapOf ("one" to 1, "two" to 2, "three" to 3, "four" to 4, "five" to 5,
+val digitMap = mapOf("one" to 1, "two" to 2, "three" to 3, "four" to 4, "five" to 5,
     "six" to 6, "seven" to 7, "eight" to 8, "nine" to 9)
 
-fun part2(input: List<String>):  Int =
+fun part2(input: List<String>) : Int =
     input.sumOf { calibration2(it) }
 
 fun calibration2(input : String) : Int {
-    val first = input.findAnyOf(words)
-    val firstDigitMatch = first?.second
-    val firstDigit = if (firstDigitMatch?.length ==1) firstDigitMatch.toInt() else digitMap[firstDigitMatch]
+    val first = input.findAnyOf(words) ?: error("no digit found")
+
+    var digit = first.second
+    val firstDigit = if (digit.length ==1) digit.toInt() else digitMap[digit]
 
     val last = input.findLastAnyOf(words)
-    val lastDigitMatch = last?.second
-    val lastDigit = if (lastDigitMatch?.length == 1) lastDigitMatch.toInt() else digitMap[lastDigitMatch]
+    digit = last!!.second
+    val lastDigit = if (digit.length == 1) digit.toInt() else digitMap[digit]
 
     return firstDigit!! * 10 + lastDigit!!
 }
