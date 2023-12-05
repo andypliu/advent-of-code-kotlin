@@ -6,8 +6,10 @@ fun main() {
 
 class DayXY {
     fun part1(input: List<String>) {
+        println("1")
     }
 
     fun part2(input: List<String>) {
+        println("2")
     }
 }
