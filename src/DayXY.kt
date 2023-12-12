@@ -1,15 +1,16 @@
 fun main() {
     val input = readInput("DayXYTest")
-    DayXY().part1(input)
-    DayXY().part2(input)
+    val day10 = DayXY(input)
+    day10.part1().println()
+    day10.part2().println()
 }
 
-class DayXY {
-    fun part1(input: List<String>) {
+class DayXY(input : List<String>) {
+    fun part1() {
         println("1")
     }
 
-    fun part2(input: List<String>) {
+    fun part2() {
         println("2")
     }
 }
