@@ -104,9 +104,9 @@ Your puzzle answer was 593821230983.
  */
 fun main() {
     val input = readInput("Day11")
-    val day10 = Day11(input)
-    day10.part1().println()
-    day10.part2().println()
+    val day11 = Day11(input)
+    day11.part1().println()
+    day11.part2().println()
 }
 
 class Day11(input: List<String>) {
